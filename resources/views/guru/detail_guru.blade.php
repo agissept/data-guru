@@ -6,7 +6,16 @@
         <div class="card">
             <div class="card-header d-flex">
                 <h5 class="m-0 align-self-center">Data Guru</h5>
-                <a href="{{ route('guru.create') }}" class="btn btn-primary ml-auto">Tambah</a>
+                <div class="ml-auto row">
+                    <a href="{{ route('guru.edit', $guru->id) }}" class="btn btn-warning mx-2" >
+                        Edit
+                    </a>
+                    <form action="{{ route('guru.destroy', $guru->id) }}" class="mx-2" method="post">
+                        @method('delete')
+                        @csrf
+                        <button class="btn btn-danger" type="submit">Hapus</button>
+                    </form>
+                </div>
             </div>
             <div class="card-body">
                 <p class="card-text">id: {{ $guru->id }}</p>

@@ -7,6 +7,12 @@
                 <h5 class="m-0">Edit Data Sekolah</h5>
             </div>
             <div class="card-body">
+                @if ($message = Session::get('success'))
+                <div class="alert alert-success alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong>{{ $message }}</strong>
+                </div>
+                @endif
                 <form action="{{ route('sekolah.update', $sekolah->id) }}" method="post" id="formTambahGuru">             
                     @method("PATCH")
                     @csrf

@@ -78,7 +78,15 @@ class GuruController extends Controller
      */
     public function edit($id)
     {
-        //
+        $guru = Guru::find($id);
+        if($guru == null){
+            abort(404);
+        }
+        $listSekolah = Sekolah::all();
+        $listPangkat = Pangkat::all();
+        $listJabatan = Jabatan::all();
+       
+        return view('guru\edit_guru', ['guru' => $guru, 'listSekolah' => $listSekolah ,'listPangkat' => $listPangkat, 'listJabatan' => $listJabatan]);
     }
 
     /**
@@ -90,7 +98,22 @@ class GuruController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $guru = Guru::find($id);
+        if($guru == null){
+            abort(404);
+        }
+        $guru->id_sekolah = $request->id_sekolah;
+        $guru->nip = $request->nip;
+        $guru->nuptk = $request->nuptk;
+        $guru->nama = $request->nama;
+        $guru->tanggal_lahir = $request->tanggal_lahir;
+        $guru->id_pangkat = $request->pangkat;
+        $guru->tmt_pangkat_terakhir = $request->tmt_pangkat_terakhir;
+        $guru->kgb = $request->kgb;
+        $guru->id_jabatan = $request->jabatan;
+        $guru->save();
+
+        return redirect()->route('guru.index')->with(['success' => $guru->nama.' Berhasil Diubah']);
     }
 
     /**
@@ -101,7 +124,13 @@ class GuruController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $guru = Guru::find($id);
+        if($guru == null){
+            abort(404);
+        }
+    
+        $guru->delete();
+        return redirect()->route('guru.index')->with(['success' => $guru->nama.' Berhasil Dihapus']);
     }
 
     public function search(Request $request, $jenjang = null)
