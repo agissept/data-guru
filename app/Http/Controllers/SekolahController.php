@@ -60,6 +60,9 @@ class SekolahController extends Controller
     public function show($id)
     {
         $sekolah = Sekolah::find($id);
+        if($sekolah == null){
+            abort(404);
+        }
         $listGuru = Guru::where('id_sekolah', $id)->get();
         $kepalaSekolah = Guru::where('id_jabatan', 4)->where('id_sekolah', $id)->first();
         if($kepalaSekolah != null){
@@ -69,14 +72,16 @@ class SekolahController extends Controller
         if($kepalaTU != null){
             $kepalaTU = $kepalaTU->nama;
         }
-        if($sekolah == null){
-            abort(404);
-        }
+        $jumlahGuru =  Guru::where('id_jabatan', 1)->where('id_sekolah', $id)->count() + 1;
+        $jumlahTU =  Guru::where('id_jabatan', 2)->where('id_sekolah', $id)->count() + 1;
+
         return view('sekolah\detail_sekolah', [
             'sekolah' => $sekolah, 
             'listGuru' => $listGuru, 
             'kepalaSekolah' => $kepalaSekolah,
             'kepalaTU' => $kepalaTU,
+            'jumlahGuru' => $jumlahGuru,
+            'jumlahTU' => $jumlahTU
             ]);
     }
 

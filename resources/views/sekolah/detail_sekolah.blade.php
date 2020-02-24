@@ -32,8 +32,8 @@
                 <p class="card-text">Koordinat : {{ $sekolah->koordinat }}</p>
                 <p class="card-text">Kepala Sekolah : {{ $kepalaSekolah }}</p>
                 <p class="card-text">Kepala TU : {{ $kepalaTU }}</p>
-                <p class="card-text">Jumlah Guru : {{ $kepalaTU }}</p>
-                <p class="card-text">Jumlah TU : {{ $kepalaTU }}</p>
+                <p class="card-text">Jumlah Guru : {{ $jumlahGuru }}</p>
+                <p class="card-text">Jumlah TU : {{ $jumlahTU }}</p>
             </div>
         </div>
         <div class="card">
