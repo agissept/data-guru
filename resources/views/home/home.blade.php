@@ -1,7 +1,11 @@
 @extends('template/admin')
 @section('content')
 <div class="row">
-    @foreach ($listSekolah as $key => $sekolah)
+    @php
+        $i = 0;
+    @endphp
+    @foreach ($listSekolah as $sekolah)
+
     <div class="col-md-4">
         <!-- Widget: user widget style 1 -->
         <div class="card card-widget widget-user">
@@ -24,7 +28,7 @@
                     <div class="col-sm-6">
                         <div class="description-block">
                             <a href="guru/{{$sekolah[0]->jenjang}}">
-                                <h5 class="description-header">{{ $listJumlahGuru[array_search($key, array_keys($listJumlahGuru))]->total_guru }}</h5>
+                                <h5 class="description-header">{{ $listJumlahGuru[$i]->total_guru }}</h5>
                                 <span class="description-text">Guru</span>
                             </a>
                         </div>
@@ -37,6 +41,9 @@
         </div>
         <!-- /.widget-user -->
     </div>
+    @php
+    $i++;
+@endphp
     @endforeach
 </div>
 <!-- /.row -->
