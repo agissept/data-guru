@@ -138,22 +138,6 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{ route('sekolah.index') }}" class="nav-link">
-                                <i class="nav-icon fas fa-th ml-2"></i>
-                                <p>
-                                    Lihat
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('sekolah.create') }}" class="nav-link">
-                                <i class="nav-icon fas fa-th ml-2"></i>
-                                <p>
-                                    Tambah
-                                </p>
-                            </a>
-                        </li>
                     </ul>
                 </li>
 

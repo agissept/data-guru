@@ -18,11 +18,22 @@
                 </div>
             </div>
             <div class="card-body">
+                @if ($message = Session::get('success'))
+                <div class="alert alert-success alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong>{{ $message }}</strong>
+                </div>
+                @endif
                 <p class="card-text">{{ $sekolah->nama_sekolah }}</p>
+                <p class="card-text">Kota : {{ $sekolah->kota }}</p>
+                <p class="card-text">Kecamatan : {{ $sekolah->kecamatan }}</p>
+                <p class="card-text">Kelurahan : {{ $sekolah->kelurahan }}</p>
                 <p class="card-text">Alamat : {{ $sekolah->alamat }}</p>
                 <p class="card-text">Koordinat : {{ $sekolah->koordinat }}</p>
                 <p class="card-text">Kepala Sekolah : {{ $kepalaSekolah }}</p>
                 <p class="card-text">Kepala TU : {{ $kepalaTU }}</p>
+                <p class="card-text">Jumlah Guru : {{ $kepalaTU }}</p>
+                <p class="card-text">Jumlah TU : {{ $kepalaTU }}</p>
             </div>
         </div>
         <div class="card">

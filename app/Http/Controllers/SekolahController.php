@@ -104,7 +104,16 @@ class SekolahController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $sekolah = Sekolah::find($id);
+        $sekolah->nama_sekolah = $request->nama_sekolah;
+        $sekolah->kota = $request->kota;
+        $sekolah->kecamatan = $request->kecamatan;
+        $sekolah->kelurahan = $request->kelurahan;
+        $sekolah->alamat = $request->alamat;
+        $sekolah->koordinat = $request->koordinat;
+        $sekolah->jenjang = $request->jenjang;
+        $sekolah->save();
+        return redirect()->route('sekolah.show', $id)->with(['success' => $request->nama_sekolah.' Berhasil Ditambahkan']);
     }
 
     /**

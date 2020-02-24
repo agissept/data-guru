@@ -7,8 +7,8 @@
                 <h5 class="m-0">Edit Data Sekolah</h5>
             </div>
             <div class="card-body">
-                <form action="{{ route('sekolah.update', $sekolah->id) }}" method="post" id="formTambahGuru">
-                    @method('POST')
+                <form action="{{ route('sekolah.update', $sekolah->id) }}" method="post" id="formTambahGuru">             
+                    @method("PATCH")
                     @csrf
                     <div class="form-group">
                         <label for="sekolah">Nama Sekolah</label>
@@ -33,16 +33,16 @@
                     </div>
                     <div class="form-group">
                         <label for="alamat">Alamat</label>
-                        <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Masukkan Alamat">
+                        <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Masukkan Alamat"  value="{{ $sekolah->alamat }}">
                     </div>
                     <div class="form-group">
                         <label for="koordinat">Koordinat</label>
                         <input type="text" class="form-control" name="koordinat" id="koordinat"
-                            placeholder="Masukkan Koordinat">
+                            placeholder="Masukkan Koordinat"  value="{{ $sekolah->koordinat }}">
                     </div>
                     <div class="form-group">
                         <label for="jenjang">Jenjang</label>
-                        <select class="form-control" name="jenjang" id="jenjang">
+                        <select class="form-control" name="jenjang" id="jenjang" value="{{ $sekolah->jenjang }}">
                             <option>SMA</option>
                             <option>SMK</option>
                             <option>SLB</option>
