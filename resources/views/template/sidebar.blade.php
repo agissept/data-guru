@@ -68,6 +68,76 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-tachometer-alt ml-2"></i>
+                                <p>
+                                    Kota Cimahi
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/sekolah/SMA?kota=Kota Cimahi" class="nav-link">
+                                        <i class="nav-icon fas fa-th ml-4"></i>
+                                        <p>
+                                            SMA
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/sekolah/SMK?kota=Kota Cimahi" class="nav-link">
+                                        <i class="nav-icon fas fa-th ml-4"></i>
+                                        <p>
+                                            SMK
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/sekolah/SLB?kota=Kota Cimahi" class="nav-link">
+                                        <i class="nav-icon fas fa-th ml-4"></i>
+                                        <p>
+                                            SLB
+                                        </p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-tachometer-alt ml-2"></i>
+                                <p>
+                                    Kota Bandung
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/sekolah/SMA?kota=Kota Bandung" class="nav-link">
+                                        <i class="nav-icon fas fa-th ml-4"></i>
+                                        <p>
+                                            SMA
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/sekolah/SMK?kota=Kota Bandung" class="nav-link">
+                                        <i class="nav-icon fas fa-th ml-4"></i>
+                                        <p>
+                                            SMK
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/sekolah/SLB?kota=Kota Bandung" class="nav-link">
+                                        <i class="nav-icon fas fa-th ml-4"></i>
+                                        <p>
+                                            SLB
+                                        </p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                         <li class="nav-item">
                             <a href="{{ route('sekolah.index') }}" class="nav-link">
                                 <i class="nav-icon fas fa-th ml-2"></i>

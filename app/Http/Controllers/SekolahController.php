@@ -124,9 +124,15 @@ class SekolahController extends Controller
     }
 
     public function showJenjang(){
+        $kota = strtoupper($_GET['kota']);
         $jenjang = request()->segment(count(request()->segments()));
-        $listSekolah = Sekolah::where('jenjang', $jenjang)->get();
-        return view('sekolah/sekolah', ['listSekolah' => $listSekolah]);
+        $listSekolah = Sekolah::where('jenjang', $jenjang);
+
+        if($kota != ''){
+            $listSekolah->where('kota', $kota);
+
+        };
+        return view('sekolah/sekolah', ['listSekolah' => $listSekolah->get()]);
     }
 }
 
