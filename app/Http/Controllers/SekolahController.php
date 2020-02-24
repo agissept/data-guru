@@ -113,7 +113,7 @@ class SekolahController extends Controller
         $sekolah->koordinat = $request->koordinat;
         $sekolah->jenjang = $request->jenjang;
         $sekolah->save();
-        return redirect()->route('sekolah.show', $id)->with(['success' => $request->nama_sekolah.' Berhasil Ditambahkan']);
+        return redirect()->route('sekolah.show', $id)->with(['success' => $request->nama_sekolah.' Berhasil Diubah']);
     }
 
     /**
@@ -124,12 +124,15 @@ class SekolahController extends Controller
      */
     public function destroy($id)
     {
-        Sekolah::find($id)->delete();
-        return redirect()->route('sekolah.index');
-    }
-
-    public function search($jenjang){
-    
+        $sekolah = Sekolah::find($id);
+        if($sekolah == null){
+            abort(404);
+        }
+        $nama_sekolah = $sekolah->nama_sekolah;
+        $jenjang = $sekolah->jenjang;
+        $kota = ucfirst(strtolower($sekolah->kota));
+        $sekolah->delete();
+        return redirect('sekolah/'.$jenjang.'?kota='.$kota)->with(['success' => $nama_sekolah.' Berhasil Dihapus']);
     }
 
     public function showJenjang(){
