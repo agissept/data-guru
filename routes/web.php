@@ -11,11 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-// Route::get('/', 'HomeController@index');
+Auth::routes();
+
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('sekolah/SMA', 'SekolahController@showJenjang');
 Route::get('sekolah/SMK', 'SekolahController@showJenjang');
@@ -29,9 +32,8 @@ Route::post('guru/search', 'GuruController@search');
 Route::resource('guru', 'GuruController');
 
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('admin/home', 'HomeController@adminHome')->name('admin.home')->middleware('is_admin');
 

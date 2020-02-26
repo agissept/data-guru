@@ -47,7 +47,7 @@
                         <label for="pangkat">Pangkat</label>
                         <select class="form-control" name="pangkat" id="pangkat">
                             @foreach ($listPangkat as $pangkat)
-                            <option value="{{ $pangkat->id }}"> {{ $pangkat->pangkat }} </option>
+                            <option value="{{ $pangkat->id }}"> {{ $pangkat->nama_pangkat }} </option>
                             @endforeach
                         </select>
                     </div>
@@ -57,10 +57,22 @@
                             placeholder="MasukkanTMT Pangkat Terakhir" id="tmtPangkatTerakhir"
                             data-toggle="datetimepicker" data-target="#tmtPangkatTerakhir" />
                     </div>
+                    {{-- todo modified --}}
                     <div class="form-group">
-                        <label for="kgb">Kenaikan Gaji Berkala</label>
+                      <label for="targetNaikPangkat">Target Naik Pangkat Selanjutnya</label>
+                      <select class="form-control" name="target_naik_pangkat" id="targetNaikPangkat">
+                        <option value="1">1 Tahun</option>
+                        <option value="2">2 Tahun</option>
+                        <option value="3">3 Tahun</option>
+                        <option value="4">4 Tahun</option>
+                        <option value="5">5 Tahun</option>
+                        <option value="6">6 Tahun</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="kgb">TMT KGB Terakhir</label>
                         <input type="text" class="form-control datetimepicker-input" name="kgb"
-                            placeholder="Masukkan Kenaikan Gaji Berkala" id="kgb" data-toggle="datetimepicker"
+                            placeholder="Masukkan TMT KGB Terakhir" id="kgb" data-toggle="datetimepicker"
                             data-target="#kgb" />
                     </div>
                     <div class="form-group">

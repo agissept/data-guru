@@ -7,9 +7,14 @@ use App\Sekolah;
 use App\Guru;
 use App\Pangkat;
 use App\Jabatan;
+use Carbon\Carbon;
 
 class GuruController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -47,8 +52,9 @@ class GuruController extends Controller
         $guru->nuptk = $request->nuptk;
         $guru->nama = $request->nama;
         $guru->tanggal_lahir = $request->tanggal_lahir;
-        $guru->pangkat = $request->pangkat;
+        $guru->id_pangkat = $request->pangkat;
         $guru->tmt_pangkat_terakhir = $request->tmt_pangkat_terakhir;
+        $guru->target_naik_pangkat = $request->target_naik_pangkat;
         $guru->kgb = $request->kgb;
         $guru->id_jabatan = $request->jabatan;
         $guru->save();
@@ -63,11 +69,15 @@ class GuruController extends Controller
      */
     public function show($id)
     {
+        
         $guru = Guru::find($id);
         if($guru == null){
             abort(404);
         }
-        return view('guru/detail_guru', ['guru' => $guru]);
+    
+        $tahunTargetNaikPangkat = Carbon::createFromFormat('Y-m-d', $guru->tmt_pangkat_terakhir)->addYear($guru->target_naik_pangkat)->format('Y-m-d');
+        $tmtKgbBerikutnya = Carbon::createFromFormat('Y-m-d', $guru->kgb)->addYear(2)->format('Y-m-d');
+        return view('guru/detail_guru', ['guru' => $guru, 'tahunTargetNaikPangkat' => $tahunTargetNaikPangkat, 'tmtKgbBerikutnya' => $tmtKgbBerikutnya]);
     }
 
     /**

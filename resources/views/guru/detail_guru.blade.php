@@ -18,7 +18,6 @@
                 </div>
             </div>
             <div class="card-body">
-                <p class="card-text">id: {{ $guru->id }}</p>
                 <p class="card-text">Sekolah: {{ $guru->sekolah->nama_sekolah }}</p>
                 <p class="card-text">NIP: {{ $guru->nip }}</p>
                 <p class="card-text">NUPTK: {{ $guru->nuptk }}</p>
@@ -27,7 +26,9 @@
                 <p class="card-text">Pangkat : {{ $guru->pangkat->nama_pangkat }}</p>
                 <p class="card-text">Jabatan : {{ $guru->jabatan->nama_jabatan }}</p>
                 <p class="card-text">TMT Pangkat Terakhir : {{ $guru->tmt_pangkat_terakhir }}</p>
-                <p class="card-text">Kenaikan Gaji Berkala : {{ $guru->kgb }}</p>
+                <p class="card-text">Target Naik Pangkat : {{ $guru->target_naik_pangkat }} Tahun ({{ $tahunTargetNaikPangkat }})</p>
+                <p class="card-text">TMT KGB Terakhir : {{ $guru->kgb }}</p>
+                <p class="card-text">TMT KGB Berikutnya : {{ $tmtKgbBerikutnya }}</p>
             </div>
         </div>
     </div>
